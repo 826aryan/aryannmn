@@ -25,15 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            navbar.style.padding = '1rem 5%';
-            navbar.style.background = 'rgba(5, 5, 5, 0.95)';
-            navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.5)';
+            navbar.classList.add('scrolled');
         } else {
-            navbar.style.padding = '2rem 5%';
-            navbar.style.background = 'rgba(5, 5, 5, 0.8)';
-            navbar.style.boxShadow = 'none';
+            navbar.classList.remove('scrolled');
         }
     });
+
+    // Handle initial state if page is loaded already scrolled
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    }
 
     // 3. Optional: Smooth Scroll Offset for Navbar
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
