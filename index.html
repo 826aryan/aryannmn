@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Creative Professional</title>
+  <meta name="description" content="Personal portfolio of a student seeking off-campus jobs.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Syne for headings, Inter for body -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Devicon -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+  <!-- Starfield Background -->
+  <canvas id="starfield" class="starfield"></canvas>
+
+  <nav class="navbar">
+    <!-- Clock moving to Navbar to replace the PORTFOLIO logo -->
+    <div class="nav-brand">
+      <span class="location-text">IN</span>
+      <div id="dot-matrix-clock" class="dot-matrix-clock nav-clock"></div>
+    </div>
+
+    <!-- Motion Highlight Nav -->
+    <ul class="motion-nav">
+      <div class="motion-highlight" id="nav-highlight"></div>
+      <li><a href="#about" class="motion-link active">Home</a></li>
+      <li><a href="#projects" class="motion-link">Projects</a></li>
+      <li><a href="#experience" class="motion-link">Experience</a></li>
+      <li><a href="#contact" class="motion-link">Contact</a></li>
+    </ul>
+  </nav>
+  <aside class="floating-nav">
+    <a href="#about" class="float-btn" title="Home">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+    <a href="https://www.linkedin.com/in/826aryan/" target="_blank" rel="noopener" class="float-btn" title="LinkedIn">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+        <rect x="2" y="9" width="4" height="12"></rect>
+        <circle cx="4" cy="4" r="2"></circle>
+      </svg>
+    </a>
+    <a href="https://github.com/826aryan" target="_blank" rel="noopener" class="float-btn" title="GitHub">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+        </path>
+      </svg>
+    </a>
+    <a href="#" class="float-btn" title="Download Resume">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+    </a>
+  </aside>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="about" class="hero section-padding">
+      <div class="hero-content">
+        <h1 class="hero-title">Hi, I'm <span class="accent-text decrypted-text" data-text="Aryan Raj">Aryan Raj</span>.
+        </h1>
+        <h2 class="hero-tagline">Solving problems and building software that works.</h2>
+        <p class="hero-bio">
+          I'm a developer who enjoys building thoughtful software and solving interesting problems.
+
+          Most of my learning comes from building projects, experimenting with ideas, and constantly improving how I
+          think about systems and code.
+        </p>
+
+        <div class="availability-card fade-up">
+          <div class="availability-indicator"></div>
+          <span class="highlight-text">Open to new opportunities and collaborations</span>
+        </div>
+
+        <div class="hero-cta fade-up">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <!-- User Profile Picture -->
+        <img src="./assets/pfp2.jpeg" alt="Aryan Raj Profile" class="hero-image" id="profile-img">
+      </div>
+    </section>
+
+    <!-- Skills / Tools Marquee Section -->
+    <section id="skills" class="skills section-padding">
+      <h3 class="skills-title">Tools that I have used</h3>
+      <div class="scroll-velocity-wrapper" id="velocity-marquee">
+        <!-- The inner tracks will be duplicated by JS for seamless scrolling -->
+        <div class="scroll-velocity-track">
+          <div class="skill-tag"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
+          <div class="skill-tag"><i class="devicon-typescript-plain colored"></i> TypeScript</div>
+          <div class="skill-tag"><i class="devicon-nextjs-plain"></i> Next.js</div>
+          <div class="skill-tag"><i class="devicon-react-original colored"></i> React.js</div>
+          <div class="skill-tag"><i class="devicon-tailwindcss-original colored"></i> TailwindCSS</div>
+          <div class="skill-tag"><i class="devicon-cplusplus-plain colored"></i> C++</div>
+          <div class="skill-tag"><i class="devicon-nginx-original colored"></i> Nginx</div>
+          <div class="skill-tag"><i class="devicon-express-original colored"></i> Express</div>
+          <div class="skill-tag"><i class="devicon-mongodb-plain colored"></i> MongoDB</div>
+          <div class="skill-tag"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</div>
+          <div class="skill-tag"><i class="devicon-python-plain colored"></i> Python</div>
+          <div class="skill-tag"><i class="devicon-jupyter-plain colored"></i> Jupyter</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section-padding">
+      <h2 class="section-title">Selected <span class="accent-text">Projects</span></h2>
+
+      <div class="projects-grid">
+        <!-- Project 1: CodeTogether -->
+        <article class="project-card fade-up">
+          <div class="project-img-wrapper">
+            <img src="./assets/project1.png" alt="CodeTogether" class="project-img" id="project1-img">
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">CodeTogether</h3>
+            <p class="project-desc">A real-time collaborative code editor allowing multiple users to write, edit, and
+              sync code live in the same environment.</p>
+            <ul class="project-tech">
+              <li>React</li>
+              <li>Node.js</li>
+              <li>Socket.IO</li>
+              <li>Monaco Editor</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://codetogether-3x2u.onrender.com/" class="project-link" target="_blank" rel="noopener">Live
+                Demo ↗</a>
+              <a href="https://github.com/826aryan/CodeTogether" class="project-link" target="_blank"
+                rel="noopener">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: HirePrep-Ai -->
+        <article class="project-card fade-up">
+          <div class="project-img-wrapper">
+            <img src="./assets/project2.png" alt="HirePrep AI" class="project-img" id="project2-img">
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">HirePrep-Ai</h3>
+            <p class="project-desc">An AI-powered interview preparation platform built natively on Next.js to help
+              candidates practice and succeed.</p>
+            <ul class="project-tech">
+              <li>Next.js</li>
+              <li>TypeScript</li>
+              <li>Tailwind CSS</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://hire-prep-ai-hkj8.vercel.app/" class="project-link" target="_blank" rel="noopener">Live
+                Demo ↗</a>
+              <a href="https://github.com/826aryan/HirePrep-Ai" class="project-link" target="_blank"
+                rel="noopener">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: GraphFlow -->
+        <article class="project-card fade-up">
+          <div class="project-img-wrapper">
+            <img src="./assets/project3.png" alt="GraphFlow" class="project-img" id="project3-img">
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">GraphFlow</h3>
+            <p class="project-desc">A modern, interactive web application for visualizing graph algorithms in real-time.
+              Built with React and Vite.</p>
+            <ul class="project-tech">
+              <li>React</li>
+              <li>Vite</li>
+              <li>Tailwind CSS</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://graphflow.aryannmn.dev/" class="project-link" target="_blank" rel="noopener">Live
+                Demo ↗</a>
+              <a href="https://github.com/826aryan/GraphFlow" class="project-link" target="_blank"
+                rel="noopener">GitHub</a>
+            </div>
+          </div>
+        </article>
+        <!-- Project 4: Temporary Chat Room -->
+        <article class="project-card fade-up">
+          <div class="project-img-wrapper wip-wrapper">
+            <div class="bolt-container">
+              <svg class="moving-bolt" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <span class="wip-text">WORK IN PROGRESS</span>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Temporary Chat Room</h3>
+            <p class="project-desc">A real-time, ephemeral chat application where rooms and messages expire. Currently
+              under active development.</p>
+            <ul class="project-tech">
+              <li>Next.js</li>
+              <li>WebSockets</li>
+              <li>Redis</li>
+            </ul>
+            <div class="project-links">
+              <span class="project-link wip-link">Coming Soon</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="experience" class="experience section-padding">
+      <h2 class="section-title">Work <span class="accent-text">Experience</span></h2>
+
+      <div class="timeline">
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <p class="timeline-date">March 2025 - December 2025</p>
+            <h3 class="timeline-role">Research and Development Intern</h3>
+            <h4 class="timeline-company">Samsung Prism</h4>
+            <div class="timeline-details">
+              <ul>
+                <li style="list-style-type: square; margin-left: 20px;">Collaborated with <strong>industry experts from
+                    Samsung</strong> to research and develop <strong>AI/ML-based solutions</strong> for real-world
+                  <strong>cybersecurity challenges</strong>, gaining exposure to production-scale problem solving and
+                  applied machine learning.
+                </li>
+              </ul>
+              <button class="btn btn-secondary blog-btn" onclick="openBlogModal()">Read My PRISM Experience Blog <svg
+                  width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px; vertical-align: middle;">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer / Contact Section -->
+  <footer id="contact" class="footer section-padding">
+    <h2 class="footer-title">Let's build something <span class="accent-text">exceptional</span>.</h2>
+    <p class="footer-cta-text">Currently open to off-campus opportunities, full-time roles, and freelance projects.</p>
+
+    <div class="footer-contact-info">
+      <!-- Sliding Text Animation Email -->
+      <a href="mailto:work.aryan826@gmail.com" class="sliding-text-container" aria-label="work.aryan826@gmail.com">
+        <div class="sliding-text" data-text="work.aryan826@gmail.com">
+          work.aryan826@gmail.com
+        </div>
+      </a>
+    </div>
+
+    <!-- Socials removed -->
+
+    <p class="footer-copy">&copy; 2023 Aryan Raj. All rights reserved.</p>
+  </footer>
+
+  <!-- PRISM Blog Modal -->
+  <div id="blog-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeBlogModal()">&times;</button>
+      <div class="blog-header">
+        <span class="blog-tag">Internship Experience</span>
+        <h2>Samsung PRISM: The Unfiltered Reality</h2>
+        <p class="blog-meta">By Aryan Raj • March 2025</p>
+      </div>
+
+      <div class="blog-body">
+        <p><em>Quick heads up: This is based on my experience at SRMIST KTR. The process, structure, and specifics might
+            be different at other colleges. Take this as one person's perspective, not a universal guide.</em></p>
+
+        <p>Let me tell you about Samsung PRISM - not the polished version you see on posters, but what it's actually
+          like. Most students I talk to have the same questions: How do you get in? What do you actually do? Is it worth
+          it?</p>
+
+        <p>So here's everything, unfiltered.</p>
+
+        <h3>The Selection Process</h3>
+        <p>PRISM opens applications through a Google Form, usually shared in college groups. You fill it, submit it, and
+          then... you wait.</p>
+
+        <p><strong>Round 1</strong> happens at your university. It's an objective test, but here's the catch - you can't
+          just tick answers. Every question needs rough work, detailed reasoning. This round cuts 60% of applicants.</p>
+
+        <p><strong>Round 2</strong> is where Samsung gets directly involved. Three coding problems. Timed. Online. You
+          solve what you can, submit, and then there's this long silence - sometimes 45 days, sometimes more. No scores.
+          No feedback. Just waiting.</p>
+
+        <p>When you do get selected, it's usually through a WhatsApp group. Not an email. Not a call. A group add.
+          That's PRISM for you - real, unpolished, straightforward.</p>
+
+        <h3>What Actually Happens After Selection</h3>
+        <p>You get put into a team of four students. You also get two faculty mentors from your university and industry
+          mentors from Samsung. This isn't optional - this is your team for the entire program.</p>
+
+        <p>Each team gets a real research problem from Samsung. A problem Samsung actually cares about solving. And you
+          sign NDAs - proper legal documents - before you even see the problem statement.</p>
+
+        <p>Here's what most people don't realize: <strong>This isn't an internship. It's research engineering.</strong>
+        </p>
+
+        <h3>The Reality of Working in PRISM</h3>
+        <p>When you start, you think "okay, two months, we'll finish this." You won't.</p>
+
+        <p>Not because there's too much work, but because Samsung's expectations are different. They don't want
+          something that works. They want something deployable. Something that can go into production. Something that
+          solves the problem properly.</p>
+
+        <p>You have weekly reviews with your faculty mentors and monthly reviews with Samsung engineers. In these
+          reviews, you defend every choice. Every assumption. Every line of your approach. "Why did you do it this way?"
+          "What happens if this fails?" "How does this scale?"</p>
+
+        <p>At the end, you don't just submit code. You submit a research paper. Yes, actual publication. That's part of
+          the program. Your work needs to be documented.</p>
+
+        <h3>What You Get Out of It</h3>
+        <p>Let's talk perks first:</p>
+        <ul class="blog-list">
+          <li>Participation Certificate + goodies on completion</li>
+          <li>Certificate of Excellence + ₹15,000 stipend (if your mentors approve your work)</li>
+          <li>Eligibility for Samsung SRIB Magpie (next level program)</li>
+          <li>Counts as your industry project requirement</li>
+          <li>Can replace one professional elective</li>
+        </ul>
+        <p>But honestly? The real gain isn't the stipend or the certificate. It's that you learn how to build things
+          that actually matter.</p>
+
+        <h3>Should You Apply?</h3>
+        <p>Look, PRISM isn't for everyone, and that's okay. Here's how to know if it's for you.</p>
+
+        <p><strong>Apply if:</strong></p>
+        <ul class="blog-list">
+          <li>You like working on one thing deeply rather than many things superficially</li>
+          <li>You want to understand how real product engineering works</li>
+          <li>You're okay with ambiguity and figuring things out as you go</li>
+          <li>You care more about learning than collecting certificates</li>
+          <li>You want actual industry mentorship, not just project guidance</li>
+        </ul>
+
+        <p><strong>Skip it if:</strong></p>
+        <ul class="blog-list">
+          <li>You want quick wins and fast turnarounds</li>
+          <li>You prefer clear instructions over open-ended problems</li>
+          <li>You're only doing it for the stipend or resume line</li>
+        </ul>
+
+        <h3>Final Word</h3>
+        <p>Getting selected for PRISM is one thing. What you do with it is another.</p>
+        <p>It's not going to be the easiest project you do in college. But if you're someone who wants to build things
+          that actually work in the real world, understand how industry thinks about problems, and learn what it means
+          to commit to something meaningful - PRISM might be exactly what you need.</p>
+        <p>The form will come. You'll have to decide if you want to fill it. At least now, you know exactly what you’re
+          signing up for.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
