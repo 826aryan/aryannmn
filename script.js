@@ -478,7 +478,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // --- PRISM Blog Modal ---
-function openBlogModal() {
+window.openBlogModal = function () {
     const modal = document.getElementById('blog-modal');
     if (modal) {
         modal.classList.add('active');
@@ -486,7 +486,7 @@ function openBlogModal() {
     }
 }
 
-function closeBlogModal() {
+window.closeBlogModal = function () {
     const modal = document.getElementById('blog-modal');
     if (modal) {
         modal.classList.remove('active');
