@@ -33,7 +33,6 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     overflow-x: hidden;
-    position: relative;
 }
 
 /* ================= Starfield Background ================= */
@@ -107,8 +106,7 @@ ul {
     border: none;
     transform: scale(0.45);
     transform-origin: left center;
-    margin-right: -45px;
-    /* Offset the scale empty space */
+    margin-right: -160px;
 }
 
 .location-text {
@@ -1062,14 +1060,14 @@ ul {
 
     /* ---- Navbar ---- */
     .navbar {
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
         padding: 0.75rem 4%;
         background: rgba(5, 5, 5, 0.92);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        gap: 0;
+        gap: 0.5rem;
     }
 
     .nav-brand {
@@ -1084,7 +1082,7 @@ ul {
     .nav-clock {
         transform: scale(0.38);
         transform-origin: left center;
-        margin-right: -52px;
+        margin-right: -188px;
     }
 
     .motion-nav {
@@ -1205,7 +1203,7 @@ ul {
 
     /* Hero needs extra top clearance for the fixed navbar */
     .hero.section-padding {
-        padding-top: 115px;
+        padding-top: 155px;
     }
 
     .section-title {
