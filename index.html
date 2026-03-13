@@ -81,8 +81,14 @@
     <!-- Hero Section -->
     <section id="about" class="hero section-padding">
       <div class="hero-content">
-        <h1 class="hero-title">Hi, I'm <span class="accent-text decrypted-text" data-text="Aryan Raj">Aryan Raj</span>.
-        </h1>
+        <!-- Top row: name + profile pic side by side on mobile -->
+        <div class="hero-top-row">
+          <h1 class="hero-title">Hi, I'm <span class="accent-text decrypted-text" data-text="Aryan Raj">Aryan Raj</span>.
+          </h1>
+          <div class="hero-image-wrapper hero-image-mobile">
+            <img src="./assets/pfp2.jpeg" alt="Aryan Raj Profile" class="hero-image" id="profile-img-mobile">
+          </div>
+        </div>
         <h2 class="hero-tagline">Solving problems and building software that works.</h2>
         <p class="hero-bio">
           I'm a developer who enjoys building thoughtful software and solving interesting problems.
@@ -101,8 +107,8 @@
           <a href="#contact" class="btn btn-secondary">Get In Touch</a>
         </div>
       </div>
-      <div class="hero-image-wrapper">
-        <!-- User Profile Picture -->
+      <div class="hero-image-wrapper hero-image-desktop">
+        <!-- User Profile Picture (desktop) -->
         <img src="./assets/pfp2.jpeg" alt="Aryan Raj Profile" class="hero-image" id="profile-img">
       </div>
     </section>
