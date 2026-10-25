@@ -1,0 +1,157 @@
+@import 'tailwindcss';
+@import './portfolio.css';
+@import './projects.css';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+@import '@fontsource-variable/geist';
+
+@custom-variant dark (&:is(.dark *));
+@theme inline {
+  --color-background: #0a0a0a;
+  --color-foreground: #f5f5f5;
+  --color-primary: #ccff00;
+  --color-primary-foreground: #0a0a0a;
+  --color-secondary: #1e1e1e;
+  --color-secondary-foreground: #f5f5f5;
+  --color-muted: #1e1e1e;
+  --color-muted-foreground: #a0a0a0;
+  --color-accent: #1e1e1e;
+  --color-accent-foreground: #ccff00;
+  --color-destructive: #ef4444;
+  --color-border: #333;
+  --color-input: #444;
+  --color-ring: #ccff00;
+  --color-popover: #121212;
+  --color-popover-foreground: #f5f5f5;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --font-heading: var(--font-sans);
+  --font-sans: 'Geist Variable', sans-serif;
+  --color-card-foreground: #f5f5f5;
+  --color-card: #101111;
+}
+@layer base {
+  :focus-visible {
+    outline: 2px solid #ccff00;
+    outline-offset: 4px;
+  }
+  section,
+  footer {
+    scroll-margin-top: 90px;
+  }
+  button {
+    font: inherit;
+  }
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+@layer components {
+  .marquee-content {
+    display: flex;
+    width: max-content;
+    animation: marquee 70s linear infinite;
+  }
+  .marquee-content > .scroll-velocity-track {
+    flex-shrink: 0;
+  }
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  .scroll-velocity-wrapper:hover .marquee-content {
+    animation-play-state: paused;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .fade-up {
+    opacity: 1;
+    transform: none;
+  }
+  .scroll-velocity-wrapper {
+    overflow-x: auto;
+  }
+}
+@layer components {
+  .tool-wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-shrink: 0;
+    color: #ddd;
+    font-size: clamp(1.65rem, 3vw, 2.5rem);
+    line-height: 1.2;
+    font-weight: 650;
+    letter-spacing: -0.045em;
+  }
+  .tool-wordmark i {
+    color: inherit;
+    font-size: 1.15em;
+    font-weight: 400;
+  }
+  .tool-wordmark:hover {
+    color: #fff;
+  }
+}
+@layer components {
+  .work-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    min-height: 44px;
+    padding-block: 0.8rem;
+    border-bottom: 1px solid #444;
+    color: #e8e8e8;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    white-space: nowrap;
+  }
+  .work-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 1px;
+    background: var(--accent-color);
+    transform: scaleX(0.12);
+    transform-origin: left;
+    transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .work-link-arrow {
+    width: 18px;
+    height: 18px;
+    color: #999;
+    transition:
+      transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
+      color 250ms ease;
+  }
+  .work-link:is(:hover, :focus-visible)::after {
+    transform: scaleX(1);
+  }
+  .work-link:is(:hover, :focus-visible) .work-link-arrow {
+    color: var(--accent-color);
+    transform: translateX(3px) rotate(45deg);
+  }
+}
